@@ -1,4 +1,5 @@
 import { Product } from "@/types/products";
+import ProductCard from "@/components/products/ProductCard";
 
 async function getProducts() : Promise<Product[]>{
   const res = await fetch("https://dummyjson.com/products");
@@ -16,29 +17,17 @@ export default async function Home(){
   const products = await getProducts();
 
   return (
-      <div className="p-10">
+       <div className="max-w-7xl mx-auto p-6">
       <h1 className="text-3xl font-bold mb-6">
         Product List
       </h1>
 
-      <div className="grid grid-cols-3 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5">
         {products.map((product) => (
-          <div
+          <ProductCard
             key={product.id}
-            className="border p-4 rounded-lg"
-          >
-            <img
-              src={product.thumbnail}
-              alt={product.title}
-              className="w-full h-40 object-cover"
-            />
-
-            <h2 className="font-semibold mt-3">
-              {product.title}
-            </h2>
-
-            <p>${product.price}</p>
-          </div>
+            product={product}
+          />
         ))}
       </div>
     </div>
