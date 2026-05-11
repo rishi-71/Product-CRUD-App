@@ -124,7 +124,7 @@ function handleEdit(product: Product) {
       onClose={()=> {setIsModalOpen(false);
         setEditProduct(null)}
       }>
-        <h2 className="text-2xl font-bold mb-4">Add Product</h2>
+        <h2 className="text-2xl font-bold mb-5 text-white">Add Product</h2>
 
         <ProductForm
   addProduct={addProduct}

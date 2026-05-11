@@ -53,33 +53,86 @@ export default function ProductForm({
     setPrice("");
   }
 
-  return (
-    <form
-      onSubmit={handleSubmit}
-      className="space-y-4"
-    >
-      <Input
-        placeholder="Product Title"
+  
+   return (
+  <form
+    onSubmit={handleSubmit}
+    className="space-y-5"
+  >
+    <div>
+      <label className="block text-sm mb-2 text-gray-300">
+        Product Title
+      </label>
+
+      <input
+        type="text"
+        placeholder="Enter product title"
         value={title}
         onChange={(e) =>
           setTitle(e.target.value)
         }
+        className="
+          w-full
+          bg-[#111]
+          border
+          border-gray-700
+          text-white
+          px-4
+          py-3
+          rounded-lg
+          outline-none
+          focus:border-blue-500
+          transition
+        "
       />
+    </div>
 
-      <Input
+    <div>
+      <label className="block text-sm mb-2 text-gray-300">
+        Price
+      </label>
+
+      <input
         type="number"
-        placeholder="Price"
+        placeholder="Enter product price"
         value={price}
         onChange={(e) =>
           setPrice(e.target.value)
         }
+        className="
+          w-full
+          bg-[#111]
+          border
+          border-gray-700
+          text-white
+          px-4
+          py-3
+          rounded-lg
+          outline-none
+          focus:border-blue-500
+          transition
+        "
       />
+    </div>
 
-      <Button>
-        {editProduct
-          ? "Update Product"
-          : "Add Product"}
-      </Button>
-    </form>
-  );
+    <button
+      type="submit"
+      className="
+        w-full
+        bg-blue-600
+        hover:bg-blue-700
+        text-white
+        py-3
+        rounded-lg
+        font-medium
+        transition
+      "
+    >
+      {editProduct
+        ? "Update Product"
+        : "Add Product"}
+    </button>
+  </form>
+);
+  
 }
